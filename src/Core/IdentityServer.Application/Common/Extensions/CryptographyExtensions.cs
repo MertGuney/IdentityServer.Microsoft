@@ -1,4 +1,5 @@
 ﻿namespace IdentityServer.Application.Common.Extensions;
+
 public static class CryptographyExtensions
 {
     public static string UrlEncode(this string value)

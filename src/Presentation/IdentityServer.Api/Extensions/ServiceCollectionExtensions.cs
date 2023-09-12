@@ -9,11 +9,39 @@ public static class ServiceCollectionExtensions
             options.AddPolicy(name: corsPolicyName,
                 policy =>
                 {
-                    policy.WithOrigins("http://localhost:3000")
-                          .AllowAnyMethod()
-                          .AllowAnyHeader()
-                          .AllowCredentials();
+                    policy.WithOrigins(
+                        "http://localhost:3000",
+                        "http://localhost:3001"
+                        ).AllowAnyMethod()
+                         .AllowAnyHeader()
+                         .AllowCredentials();
                 });
+        });
+    }
+
+    public static void ConfigureExternalAuth(this IServiceCollection services, IConfiguration configuration)
+    {
+        var authenticationBuilder = services.AddAuthentication();
+
+        var authOptions = configuration.GetSection("Authentication").Get<AuthOptions>();
+
+        authenticationBuilder.AddGoogle("Google", opts =>
+        {
+            opts.ClientId = authOptions.Google.ClientId;
+            opts.ClientSecret = authOptions.Google.ClientSecret;
+            opts.SignInScheme = IdentityConstants.ExternalScheme;
+            opts.Scope.Add(JwtClaimTypes.Profile);
+        });
+        authenticationBuilder.AddTwitter(opts =>
+        {
+            opts.ConsumerKey = authOptions.Twitter.ClientId;
+            opts.ConsumerSecret = authOptions.Twitter.ClientSecret;
+        });
+        authenticationBuilder.AddFacebook(opts =>
+        {
+            opts.ClientId = authOptions.Facebook.ClientId;
+            opts.ClientSecret = authOptions.Facebook.ClientSecret;
+            opts.Fields.Add(JwtClaimTypes.Picture);
         });
     }
 

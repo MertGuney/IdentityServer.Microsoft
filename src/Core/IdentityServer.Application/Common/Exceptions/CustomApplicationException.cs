@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace IdentityServer.Application.Common.Exceptions;
+﻿namespace IdentityServer.Application.Common.Exceptions;
 
 public class CustomApplicationException : Exception
 {

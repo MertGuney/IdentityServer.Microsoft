@@ -1,4 +1,5 @@
 ﻿namespace IdentityServer.Persistence.Validators;
+
 public class IdentityUserValidator : IUserValidator<User>
 {
     public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user)
@@ -8,7 +9,11 @@ public class IdentityUserValidator : IUserValidator<User>
 
         if (isDigit)
         {
-            errors.Add(new() { Code = "UserNameContainFirstLetterDigit", Description = "The first character of the username can not contain a numeric character." });
+            errors.Add(new()
+            {
+                Code = "UserNameContainFirstLetterDigit",
+                Description = "The first character of the username can not contain a numeric character."
+            });
         }
 
         return errors.Any()

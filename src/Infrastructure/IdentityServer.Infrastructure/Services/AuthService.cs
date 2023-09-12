@@ -1,6 +1,4 @@
-﻿using IdentityServer.Shared.Enums;
-
-namespace IdentityServer.Infrastructure.Services;
+﻿namespace IdentityServer.Infrastructure.Services;
 
 public class AuthService : IAuthService
 {

@@ -1,6 +1,4 @@
-﻿using IdentityServer.Application.Common.Constants;
-
-namespace IdentityServer.Persistence.SeedData;
+﻿namespace IdentityServer.Persistence.SeedData;
 
 public static class Seed
 {

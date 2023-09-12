@@ -16,7 +16,7 @@ public class ExceptionHandlingBehavior<TRequest, TResponse, TException> : IReque
     {
         var response = CreateExceptionError(exception);
 
-        _logger.LogError(JsonSerializer.Serialize(response));
+        _logger.LogError(System.Text.Json.JsonSerializer.Serialize(response));
 
         state.SetHandled(response as TResponse);
 

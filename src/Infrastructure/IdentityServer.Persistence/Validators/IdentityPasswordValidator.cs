@@ -1,4 +1,5 @@
 ﻿namespace IdentityServer.Persistence.Validators;
+
 public class IdentityPasswordValidator : IPasswordValidator<User>
 {
     public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user, string password)

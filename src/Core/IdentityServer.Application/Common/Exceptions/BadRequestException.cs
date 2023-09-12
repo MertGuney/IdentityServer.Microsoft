@@ -1,4 +1,5 @@
 ﻿namespace IdentityServer.Application.Common.Exceptions;
+
 public class BadRequestException : Exception
 {
     public List<string> Errors { get; set; }

@@ -1,4 +1,5 @@
 ﻿namespace IdentityServer.Application.Common.Extensions;
+
 public class ExceptionHandlingMiddleware : IMiddleware
 {
     private readonly ILogger<ExceptionHandlingMiddleware> _logger;

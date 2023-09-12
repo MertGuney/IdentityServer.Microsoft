@@ -1,4 +1,5 @@
 ﻿namespace IdentityServer.Persistence.Contexts;
+
 public class AppDbContext : IdentityDbContext<User, Role, Guid>
 {
     private readonly IDomainEventDispatcher _dispatcher;

@@ -1,4 +1,4 @@
-﻿namespace IdentityServer.Infrastructure.Validators;
+﻿namespace IdentityServer.Application.Validators.Identities;
 
 public class TokenExchangeExtensionGrantValidator : IExtensionGrantValidator
 {
