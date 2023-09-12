@@ -3,7 +3,6 @@ version: '3.4'
 services:
   identityserver.api:
     container_name: identityserver-api
-    image: mertguney/identityserverapi:${version}
     build:
       context: .
       dockerfile: src/Presentation/IdentityServer.Api/Dockerfile
