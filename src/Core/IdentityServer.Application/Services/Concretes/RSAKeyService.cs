@@ -42,7 +42,7 @@ public class RSAKeyService
             var p = GetRandomKey();
             RSAParametersWithPrivate t = new();
             t.SetParameters(p);
-            File.WriteAllText(_file, System.Text.Json.JsonSerializer.Serialize(t));// JsonConvert.SerializeObject(t, Formatting.Indented));
+            File.WriteAllText(_file, JsonSerializer.Serialize(t));// JsonConvert.SerializeObject(t, Formatting.Indented));
         }
         return this;
     }
